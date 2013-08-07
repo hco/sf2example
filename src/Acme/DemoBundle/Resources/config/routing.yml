@@ -14,3 +14,9 @@ _demo:
 _demo_foobar:
     resource: "@AcmeDemoBundle/Controller/FooBarController.php"
     type:     annotation
+# Grundsätzlich ginge btw auch das:
+# _demo_foobar_bundle:
+#      resource: "@AcmeDemoBundle/Controller/"
+#      type:     annotation
+#
+# Du musst also nicht jede datei einzeln eintragen ;)
