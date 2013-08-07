@@ -14,5 +14,30 @@
             <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController" />
             <argument type="service" id="twig.extension.acme.demo" />
         </service>
+
+        <!-- Added by HCO: -->
+
+        <!-- Model Factories -->
+        <service id="acme.modelfactory.foo" class="Acme\DemoBundle\Factory\Model">
+            <argument type="string">http://api.example.com/foo</argument>
+            <argument type="string">Acme\DemoBundle\Model\Foo</argument>
+            <argument type="service" id="logger" />
+        </service>
+
+        <service id="acme.modelfactory.bar" class="Acme\DemoBundle\Factory\Model">
+            <argument type="string">http://api.example.com/bar</argument>
+            <argument type="string">Acme\DemoBundle\Model\Bar</argument>
+            <argument type="service" id="logger" />
+        </service>
+
+        <!--
+            Controller. See http://symfony.com/doc/current/cookbook/controller/service.html
+             And you really wanna implement controllers as a service! :)
+        -->
+
+        <service id="acme.controllers.foobar" class="Acme\DemoBundle\Controller\FooBarController">
+            <argument type="service" id="acme.modelfactory.foo" />
+            <argument type="service" id="acme.modelfactory.bar" />
+        </service>
     </services>
 </container>

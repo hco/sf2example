@@ -10,3 +10,7 @@ _demo:
     resource: "@AcmeDemoBundle/Controller/DemoController.php"
     type:     annotation
     prefix:   /demo
+
+_demo_foobar:
+    resource: "@AcmeDemoBundle/Controller/FooBarController.php"
+    type:     annotation
